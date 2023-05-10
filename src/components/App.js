@@ -13,5 +13,6 @@ function App() {
     </div>
   );
 }
+// App compiled
 
 export default App;
