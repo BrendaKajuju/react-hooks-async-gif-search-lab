@@ -8,8 +8,8 @@ const GifListContainer = () => {
     const handleSearch = (query) => {
         fetch(`https://api.giphy.com/v1/gifs/search?api_key=8MWdd55hPlBMpml0HakvKaRM50v9yA2t&q=${query}&rating=g&lang=en`)
         .then((resp) => resp.json())
-        .then((searchdata) => {
-            const gifData = searchdata.searchdata.slice(0, 3)
+        .then((data) => {
+            const gifData = data.data.slice(0, 3)
             setGifs(gifData)
         })
         .catch((error) => {
@@ -18,9 +18,8 @@ const GifListContainer = () => {
     }
   return (
     <div className='container'>
-        <GifSearch onsearch={handleSearch} />
+        <GifSearch handleSearch={handleSearch} />
         <GifList gifs={gifs} />
-
     </div>
   )
 }
